@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xctk="clr-namespace:Xceed.Maui.Toolkit;assembly=Xceed.Maui.Toolkit"
+             x:Class="RezervareFilmeNet8.MainPage">
+
+        <ScrollView VerticalOptions="Start" HorizontalOptions="Start">
+        <HorizontalStackLayout >
+
+            <xctk:Button HeightRequest="64"
+                 WidthRequest="225" Clicked="OnCounterClicked">
+                <HorizontalStackLayout>
+                    <Image Source="dotnet_bot.png"
+               HeightRequest="36"
+               WidthRequest="36"
+               Margin="0,0,8,0"/>
+                    <Label Text="Add the movie"               
+               VerticalOptions="Start"/>
+                </HorizontalStackLayout>
+            </xctk:Button>
+
+            <xctk:Button HeightRequest="64"
+                 WidthRequest="225" Clicked="toMoviePage">
+                <HorizontalStackLayout>
+                    <Image Source="dotnet_bot.png"
+               HeightRequest="36"
+               WidthRequest="36"
+               Margin="0,0,8,0"/>
+                    <Label Text="navigate to movie page"               
+               VerticalOptions="Start"/>
+                </HorizontalStackLayout>
+            </xctk:Button>
+        </HorizontalStackLayout>
+    </ScrollView>
+
+</ContentPage>

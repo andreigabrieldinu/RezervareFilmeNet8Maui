@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xctk="clr-namespace:Xceed.Maui.Toolkit;assembly=Xceed.Maui.Toolkit"
+             x:Class="RezervareFilmeNet8.Pages.MoviesPage"
+             Title="MoviesPage">
+    
+    <StackLayout>
+        <Label Text="Our available Movies" FontSize="Title" HorizontalOptions="Center" />
+        <ListView x:Name="listViewMovies">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <xctk:Card Padding="10" Margin="10" CornerRadius="10" Opacity="10">
+                            <StackLayout>
+                                <Image Source="{Binding Poster}" Aspect="AspectFill" HeightRequest="100" WidthRequest="100" HorizontalOptions="Start" VerticalOptions="Start"/>
+                                <Label Text="{Binding Title}"  FontSize="Title" />
+                                <Label Text="{Binding Released}" FontSize="Body" />
+                                <Label Text="{Binding Genre}" FontSize="Body" />
+                                <Label Text="{Binding Runtime}" FontSize="Body" />
+                                <Label Text="{Binding Plot}" FontSize="Body" /> 
+                                <Label Text="{Binding Language}" FontSize="Body" />
+                                <Label Text="{Binding Country}" FontSize="Body" />
+                                <Label Text="{Binding imdbRating}" FontSize="Body" />
+                                <Label Text="{Binding Director}" FontSize="Body" />
+                            </StackLayout>
+                        </xctk:Card>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
