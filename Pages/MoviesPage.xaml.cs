@@ -6,7 +6,7 @@ namespace RezervareFilmeNet8.Pages;
 
 public partial class MoviesPage : ContentPage
 {
-    List<Movies> movies = new List<Movies>(); 
+    List<Movies> movies = []; 
     private LocalDbService _localDbService;
     public MoviesPage(LocalDbService localDbService)
 	{
@@ -17,7 +17,7 @@ public partial class MoviesPage : ContentPage
 	}
     async Task InitializeMovies()
     {
-        movies=await _localDbService.GetMovies();
+        movies = await _localDbService.GetMovies();
     }
 	override protected async void OnAppearing()
     {

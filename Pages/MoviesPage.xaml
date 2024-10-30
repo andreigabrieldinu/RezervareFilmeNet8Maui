@@ -4,27 +4,28 @@
              xmlns:xctk="clr-namespace:Xceed.Maui.Toolkit;assembly=Xceed.Maui.Toolkit"
              x:Class="RezervareFilmeNet8.Pages.MoviesPage"
              Title="MoviesPage">
-    
+
     <StackLayout>
         <Label Text="Our available Movies" FontSize="Title" HorizontalOptions="Center" />
         <ListView x:Name="listViewMovies">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <xctk:Card Padding="10" Margin="10" CornerRadius="10" Opacity="10">
-                            <StackLayout>
-                                <Image Source="{Binding Poster}" Aspect="AspectFill" HeightRequest="100" WidthRequest="100" HorizontalOptions="Start" VerticalOptions="Start"/>
-                                <Label Text="{Binding Title}"  FontSize="Title" />
-                                <Label Text="{Binding Released}" FontSize="Body" />
-                                <Label Text="{Binding Genre}" FontSize="Body" />
-                                <Label Text="{Binding Runtime}" FontSize="Body" />
-                                <Label Text="{Binding Plot}" FontSize="Body" /> 
-                                <Label Text="{Binding Language}" FontSize="Body" />
-                                <Label Text="{Binding Country}" FontSize="Body" />
-                                <Label Text="{Binding imdbRating}" FontSize="Body" />
-                                <Label Text="{Binding Director}" FontSize="Body" />
-                            </StackLayout>
-                        </xctk:Card>
+                        <HorizontalStackLayout>
+                            <Image Source="{Binding Poster}" Aspect="AspectFill" HeightRequest="150" WidthRequest="200" HorizontalOptions="Start" VerticalOptions="Start"/>
+
+                            <VerticalStackLayout>
+                                <Label Text="{Binding Title}"  FontSize="Title"/>
+                                <Label Text="{Binding Released, StringFormat='Released on: {0}'}"  FontSize="Body" />
+                                <Label Text="{Binding Genre, StringFormat='Genre: {0}'}"  FontSize="Body" />
+                                <Label Text="{Binding Runtime, StringFormat='Duration: {0}'}" FontSize="Body"/>
+                                <ScrollView >
+                                    <Label Text="{Binding Plot, StringFormat='Plot: {0}'}" LineBreakMode="WordWrap" FontSize="Body"/>
+                                </ScrollView>
+                                <Label Text="{Binding Language, StringFormat='Language: {0}'}" FontSize="Body"/>
+                                <Label Text="{Binding imdbRating,StringFormat='Rating: {0}'}" FontSize="Body"/>
+                            </VerticalStackLayout>
+                        </HorizontalStackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>

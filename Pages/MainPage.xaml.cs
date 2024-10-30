@@ -18,7 +18,7 @@ namespace RezervareFilmeNet8
         private async void OnCounterClicked(object sender, EventArgs e)
         {
             restService = new RestServices();
-            Movies m = await restService.GetMovie("Real Steel 2");
+            Movies m = await restService.GetMovie("Don't move");
             await _localDbService.InsertMovie(m);
         }
         private async void toMoviePage(object sender, EventArgs e)

@@ -25,9 +25,9 @@ namespace RezervareFilmeNet8.API
         }
         public async Task<Movies> GetMovie(string title)
         {
-            Movies movies = new Movies();
-            RestServices restServices = new RestServices();
-            Uri uri = new Uri(restServices.client.BaseAddress + "?apikey=1ed706f8&t=" + title.Trim());
+            Movies movies = new ();
+            RestServices restServices = new ();
+            Uri uri = new (restServices.client.BaseAddress + "?apikey=1ed706f8&t=" + title.Trim());
             try
             {
                 HttpResponseMessage response = await restServices.client.GetAsync(uri);
