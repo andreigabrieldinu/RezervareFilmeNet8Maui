@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using CommunityToolkit.Maui.Markup;
+using Microsoft.Extensions.Logging;
 using RezervareFilme;
 using RezervareFilmeNet8.Pages;
 using Xceed.Maui.Toolkit;
@@ -10,21 +11,21 @@ namespace RezervareFilmeNet8
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
-            
+
             builder
                 .UseMauiApp<App>().UseXceedMauiToolkit(FluentDesignAccentColor.DarkLily)
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
+                }).UseMauiApp<App>().UseMauiCommunityToolkitMarkup();
             builder.Services.AddTransient<MainPage>();
             builder.Services.AddTransient<LocalDbService>();
-
             builder.Services.AddTransient<MoviesPage>();
+            builder.Services.AddTransient<RoomsPage>();
 
 #if DEBUG
-    		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
 
             return builder.Build();

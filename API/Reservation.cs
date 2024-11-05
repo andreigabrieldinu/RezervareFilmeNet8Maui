@@ -11,20 +11,20 @@ namespace RezervareFilmeNet8.API
     public class Reservation
     {
         [PrimaryKey]
+        [AutoIncrement]    
         [Column("id")]
         public int Id { get; set; }
         [Column("movie_title")]
-        public int MovieTitle { get; set; }
+        public string MovieTitle { get; set; }
         [Column("room_id")]
-        public int RoomName { get; set; }
+        public string RoomName { get; set; }
         [Column("date")]
-        public DateTime Date { get; set; }
+        public string Date { get; set; }
         [Column("price")]
         public double Price { get; set; }
         [Column("status")]
         public string Status { get; set; }
         [Column("email")]
         public string Email { get; set; }
-
     }
 }

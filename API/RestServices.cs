@@ -35,7 +35,6 @@ namespace RezervareFilmeNet8.API
                 {
                     string content = await response.Content.ReadAsStringAsync();
                     movies = JsonSerializer.Deserialize<Movies>(content);
-
                 }
             }
             catch (Exception e)

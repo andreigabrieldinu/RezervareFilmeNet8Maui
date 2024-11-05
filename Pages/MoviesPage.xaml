@@ -3,25 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:xctk="clr-namespace:Xceed.Maui.Toolkit;assembly=Xceed.Maui.Toolkit"
              x:Class="RezervareFilmeNet8.Pages.MoviesPage"
-             Title="MoviesPage">
+             xmlns:droid="clr-namespace:CommunityToolkit.Maui.PlatformConfiguration.AndroidSpecific;assembly=CommunityToolkit.Maui"
+             Title="MoviesPage"
+             BackgroundImageSource="background.jpg">
 
     <StackLayout>
-        <Label Text="Our available Movies" FontSize="Title" HorizontalOptions="Center" />
+        <Label Text="Our available Movies" FontSize="Title" HorizontalOptions="Center" TextColor="Black"/>
         <ListView x:Name="listViewMovies">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <HorizontalStackLayout>
-                            <Image Source="{Binding Poster}" Aspect="AspectFill" HeightRequest="150" WidthRequest="200" HorizontalOptions="Start" VerticalOptions="Start"/>
-
+                            <Image Source="{Binding Poster}" Aspect="AspectFill" HeightRequest="160" WidthRequest="160" HorizontalOptions="Start" VerticalOptions="Start" Margin="0,0,0,5"/>
                             <VerticalStackLayout>
-                                <Label Text="{Binding Title}"  FontSize="Title"/>
-                                <Label Text="{Binding Released, StringFormat='Released on: {0}'}"  FontSize="Body" />
+                                <Label Text="{Binding Title}" FontSize="Title" />
+                                <Label Text="{Binding Released, StringFormat='Released on: {0}'}"  FontSize="Body"/>
                                 <Label Text="{Binding Genre, StringFormat='Genre: {0}'}"  FontSize="Body" />
                                 <Label Text="{Binding Runtime, StringFormat='Duration: {0}'}" FontSize="Body"/>
-                                <ScrollView >
-                                    <Label Text="{Binding Plot, StringFormat='Plot: {0}'}" LineBreakMode="WordWrap" FontSize="Body"/>
-                                </ScrollView>
+                                <Label Text="{Binding Plot, StringFormat='Plot: {0}'}" FontSize="Body"/>
                                 <Label Text="{Binding Language, StringFormat='Language: {0}'}" FontSize="Body"/>
                                 <Label Text="{Binding imdbRating,StringFormat='Rating: {0}'}" FontSize="Body"/>
                             </VerticalStackLayout>
@@ -29,6 +28,6 @@
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
-        </ListView>
+        </ListView> 
     </StackLayout>
 </ContentPage>

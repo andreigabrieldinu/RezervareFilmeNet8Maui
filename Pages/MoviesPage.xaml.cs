@@ -12,8 +12,6 @@ public partial class MoviesPage : ContentPage
 	{
         InitializeComponent();
         _localDbService = localDbService;
-
-        
 	}
     async Task InitializeMovies()
     {

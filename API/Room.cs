@@ -11,6 +11,7 @@ namespace RezervareFilmeNet8.API
     public class Room
     {
         [PrimaryKey]
+        [AutoIncrement]
         [Column("id")]
         public int Id { get; set; }
         [Column("name")]
@@ -19,5 +20,6 @@ namespace RezervareFilmeNet8.API
         public int Capacity { get; set; }
         [Column("status")]
         public string Status { get; set; }
+          
     }
 }
