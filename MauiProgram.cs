@@ -1,6 +1,5 @@
 ﻿using CommunityToolkit.Maui.Markup;
 using Microsoft.Extensions.Logging;
-using RezervareFilme;
 using RezervareFilmeNet8.Pages;
 using Xceed.Maui.Toolkit;
 

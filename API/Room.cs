@@ -18,8 +18,13 @@ namespace RezervareFilmeNet8.API
         public string Name { get; set; }
         [Column("capacity")]
         public int Capacity { get; set; }
+        [Column("rowNumbers")]
+        public int RowNumbers { get; set; }
         [Column("status")]
         public string Status { get; set; }
-          
+        [Column("screenType")]
+        public string ScreenType { get; set; }
+        [Column("roomType")]
+        public string RoomType { get; set; }
     }
 }

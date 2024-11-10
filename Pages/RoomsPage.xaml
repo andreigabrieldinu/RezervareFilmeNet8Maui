@@ -7,10 +7,10 @@
              xmlns:xctk="clr-namespace:Xceed.Maui.Toolkit;assembly=Xceed.Maui.Toolkit">
     <HorizontalStackLayout>
         
-        <CollectionView x:Name="CollectionViewRooms" Header="Available Rooms">
+        <CollectionView x:Name="CollectionViewRooms" Header="Available Rooms"  SelectionMode="Single" >
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Grid Padding="10">
+                    <Grid Padding="10" >
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
@@ -20,43 +20,40 @@
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <Label Grid.Column="0"
-                       Text="{Binding Name}"
+                       Text="{Binding Name, StringFormat='Name: {0}'}"
                        FontAttributes="Bold" 
                             VerticalOptions="Center"/>
                         <Label 
-                       Grid.Column="1"
-                       Text="{Binding Capacity}"
-                       FontAttributes="Italic"
-                       VerticalOptions="Center" />
+                        Grid.Column="1"
+                        Text="{Binding Capacity, StringFormat='Total capacity: {0}'}"
+                        VerticalOptions="Center" />
                         <Label
                         Grid.Column="2"
-                        Text="{Binding Status}"
-                        FontAttributes="Italic"
+                        Text="{Binding RowNumbers, StringFormat='Number of rows: {0}
+                            '}"
                         VerticalOptions="Center" Margin="0,0,5,0" />
-                        <xctk:Button Clicked="Button_Clicked" Grid.Column="3" VerticalOptions="Start">
-                            <xctk:Button.Content>
-                                <Image Source="add.png" HeightRequest="20" WidthRequest="20"/>
-                                
-                            </xctk:Button.Content>
-                            
-                        </xctk:Button>
-                        <xctk:Button Clicked="Button_Clicked" Grid.Column="4" VerticalOptions="Start" >
-                            <xctk:Button.Content>
-                                <Image Source="delete.png" HeightRequest="20" WidthRequest="20" />
-
-                            </xctk:Button.Content>
-
-                        </xctk:Button>
+                        <Label
+                        Grid.Column="3"
+                        Text="{Binding Status, StringFormat='Current status: {0}'}" VerticalOptions="Center" Margin="0,0,5,0" />
+                        <Label Grid.Column="4" 
+                               Text="{Binding ScreenType,StringFormat='Screen type: {0}'}"
+                               VerticalOptions="Center"/>
+                        <Label Grid.Column="5"
+                               Text="{Binding RoomType,StringFormat='Room type: {0}'}" VerticalOptions="Center"/>
+                        
+                        <Button Clicked="ModifyRoomInUI" Grid.Column="6" VerticalOptions="Start" ImageSource="systemupdate.png" HeightRequest="20" WidthRequest="20" BackgroundColor="White">
+                        </Button>
+                        <Button Clicked="DeleteRoomInUI" Grid.Column="7" VerticalOptions="Start" ImageSource="bin.png" HeightRequest="20" WidthRequest="20" BackgroundColor="White">
+                        </Button>
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        <StackLayout>
-            <xctk:Calculator Background="Transparent">
-
-            </xctk:Calculator>
-        </StackLayout>
+     
     </HorizontalStackLayout>
 </ContentPage>

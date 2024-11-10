@@ -1,12 +1,12 @@
-using RezervareFilme;
 using RezervareFilmeNet8.API;
+using System.Windows.Input;
 
 namespace RezervareFilmeNet8.Pages;
 
 public partial class RoomsPage : ContentPage
 {
 
-    private List<Room> rooms = [];
+    private List<Room> Rooms = [];
     private LocalDbService _localDbService;
     public RoomsPage(LocalDbService localDbService)
     {
@@ -16,21 +16,30 @@ public partial class RoomsPage : ContentPage
     }
     async Task InitializeRooms()
     {
-      rooms= await _localDbService.GetRooms();
+        Rooms= await _localDbService.GetRooms();
     }
     override protected async void OnAppearing()
     {
         base.OnAppearing();
         await InitializeRooms();
-        CollectionViewRooms.ItemsSource= rooms;
-        if(rooms.Count!=0)
+        CollectionViewRooms.ItemsSource= Rooms;
+        if(Rooms.Count!=0)
         {
-            BindingContext = rooms;
+            BindingContext = Rooms;
         }
     }
-
-    private void Button_Clicked(object sender, EventArgs e)
+    private void ModifyRoomInUI(object sender, EventArgs e)
     {
-
+        Button b=(Button)sender;
+        Room r = (Room)b.BindingContext;
+        Navigation.PushAsync(new ModifyRoomPage(r,_localDbService));
+         
+    }
+    private async void DeleteRoomInUI(object sender, EventArgs e)
+    {
+        Button b = (Button)sender;
+        Room r = (Room)b.BindingContext;
+        await _localDbService.DeleteRoom(r.Name);
+        OnAppearing();
     }
 }
