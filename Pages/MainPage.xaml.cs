@@ -33,6 +33,13 @@ namespace RezervareFilmeNet8
             }
             else
             {
+                Movies m2=await _localDbService.GetMovieByTitle(m.Title);
+                if(m2 is not null)
+                {
+                    await DisplayAlert("Error", "Movie already exists in the database.", "OK");
+                    TextBoxMovie.Text = null;
+                    return;
+                }
                 await _localDbService.InsertMovie(m);
                 await DisplayAlert("Success", "Movie was added!", "OK");
                 TextBoxMovie.Text = null;
@@ -46,6 +53,11 @@ namespace RezervareFilmeNet8
         private async void ToRoomsPage(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new RoomsPage(_localDbService));
+        }
+
+        private async void ToAddRoomPage(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new InsertRoomPage(_localDbService));
         }
     }
 

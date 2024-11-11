@@ -30,10 +30,10 @@ public partial class RoomsPage : ContentPage
     }
     private void ModifyRoomInUI(object sender, EventArgs e)
     {
-        Button b=(Button)sender;
-        Room r = (Room)b.BindingContext;
-        Navigation.PushAsync(new ModifyRoomPage(r,_localDbService));
-         
+        //Button b=(Button)sender;
+        //Room r = (Room)b.BindingContext;
+        //Navigation.PushAsync(new ModifyRoomPage(r,_localDbService));
+        
     }
     private async void DeleteRoomInUI(object sender, EventArgs e)
     {

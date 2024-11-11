@@ -13,7 +13,7 @@ namespace RezervareFilmeNet8.API
         [PrimaryKey]
         [AutoIncrement]
         [Column("id")]
-        public int Id { get; set; }
+        private int Id { get; set; }
         [Column("name")]
         public string Name { get; set; }
         [Column("capacity")]
@@ -26,5 +26,15 @@ namespace RezervareFilmeNet8.API
         public string ScreenType { get; set; }
         [Column("roomType")]
         public string RoomType { get; set; }
+        public Room() { }
+        public Room(string name, int capacity, int rowNumbers, string status, string screentype,string roomtype)
+        {
+            Name = name;
+            Capacity = capacity;
+            RowNumbers = rowNumbers;
+            Status = status;
+            ScreenType = screentype;
+            RoomType = roomtype;
+        }
     }
 }

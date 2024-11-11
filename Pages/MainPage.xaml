@@ -84,7 +84,7 @@
             </xctk:Button>
 
             <xctk:Button HeightRequest="64"
-                WidthRequest="300" >
+                WidthRequest="300" Clicked="ToAddRoomPage" >
                 <HorizontalStackLayout>
                     <Image Source="hall.png"
                 HeightRequest="40"

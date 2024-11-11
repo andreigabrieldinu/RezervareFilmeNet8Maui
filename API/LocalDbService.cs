@@ -37,7 +37,7 @@ namespace RezervareFilmeNet8
             return await connection.Table<Movies>().ToListAsync();
 
         }
-        public async Task<Movies> GetByTitle(string title)
+        public async Task<Movies> GetMovieByTitle(string title)
         {
             await Init();
             return await connection.Table<Movies>().Where(x => x.Title == title).FirstOrDefaultAsync();

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RezervareFilmeNet8.Pages.InsertRoomPage"
+             xmlns:xctk="clr-namespace:Xceed.Maui.Toolkit;assembly=Xceed.Maui.Toolkit"
+             Title="InsertRoomPage"
+             BackgroundImageSource="background.jpg">
+    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <VerticalStackLayout>
+            <Label Text="Insert room Name" FontSize="Medium" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <xctk:TextBox x:Name="TbRoomName">
+
+            </xctk:TextBox>
+        </VerticalStackLayout>
+        <VerticalStackLayout>
+            <Label Text="Choose room capacity" FontSize="Medium" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Slider Minimum="1" Maximum="100" x:Name="SliderCapacity" ValueChanged="SliderCapacity_ValueChanged">
+                
+            </Slider>
+            <HorizontalStackLayout>
+                <Label Text="Capacity=1" FontSize="Medium" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center" x:Name="LabelCapacity"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+        <VerticalStackLayout>
+            <Label Text="Choose number of rows" FontSize="Medium" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Slider Minimum="1" Maximum="15" x:Name="SliderRows" ValueChanged="SliderRows_ValueChanged">
+                
+            </Slider>
+            <HorizontalStackLayout>
+                <Label Text="Number of rows=1" FontSize="Medium" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center" x:Name="LabelNumberRows"/>
+            </HorizontalStackLayout>
+        </VerticalStackLayout>
+        <VerticalStackLayout>
+        <Picker x:Name="PickerStatus"
+            Title="Select a status" Background="White" FontSize="Medium">
+            <Picker.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>Available</x:String>
+                    <x:String>In Repairs</x:String>
+                    <x:String>Full</x:String>
+                    <x:String>Not Available</x:String>
+                </x:Array>
+            </Picker.ItemsSource>
+            </Picker>
+        </VerticalStackLayout>
+        <VerticalStackLayout>
+            <Picker x:Name="PickerScreenType"
+            Title="Select a screen type" Background="White" FontSize="Medium">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>4:3</x:String>
+                        <x:String>2.35:1</x:String>
+                        <x:String>16:9</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+        </VerticalStackLayout>
+        <HorizontalStackLayout Margin="0,5,0,0">
+            <RadioButton x:Name="Rb3D" GroupName="RoomType" Value="3D" Content="3D" Margin="0,0,20,0"/>
+            <RadioButton x:Name="Rb2D" GroupName="RoomType" Value="2D" Content="2D" Margin="0,0,20,0"/>
+            <RadioButton x:Name="RbIMAX" GroupName="RoomType" Value="IMAX" Content="IMAX" Margin="0,0,20,0"/>
+            <RadioButton x:Name="RbVIP" GroupName="RoomType" Value="VIP" Content="VIP" Margin="0,0,20,0"/>
+            <RadioButton x:Name="Rb4DX" GroupName="RoomType" Value="4DX" Content="4DX" Margin="0,0,0,0"/>
+        </HorizontalStackLayout>
+        <xctk:Button Clicked="InsertRoomClicked">
+            <HorizontalStackLayout>
+                <Label Text="Insert the room"></Label>
+            </HorizontalStackLayout>
+        </xctk:Button>
+    </VerticalStackLayout>
+</ContentPage>
