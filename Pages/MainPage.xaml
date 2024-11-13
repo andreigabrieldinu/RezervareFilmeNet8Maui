@@ -68,7 +68,7 @@
             </xctk:Button>
 
             <xctk:Button HeightRequest="64"
-                 WidthRequest="300">
+                 WidthRequest="300" Clicked="ToAddResevationPage">
                 <HorizontalStackLayout>
                     <Image Source="reserved.png"
                  HeightRequest="40"
@@ -95,38 +95,6 @@
                 WidthRequest="20"
                 Margin="0,0,120,0" HorizontalOptions="Start" VerticalOptions="Start"/>
                     <Label Text="Add a room"               
-                VerticalOptions="Start"/>
-                </HorizontalStackLayout>
-            </xctk:Button>
-
-            <xctk:Button HeightRequest="64"
-                WidthRequest="300">
-                <HorizontalStackLayout>
-                    <Image Source="reserved.png"
-                HeightRequest="40"
-                WidthRequest="40"
-                Margin="0,0,0,0"/>
-                    <Image Source="bin.png"
-                HeightRequest="20"
-                WidthRequest="20"
-                Margin="0,0,68,0"  HorizontalOptions="Start" VerticalOptions="Start"/>
-                    <Label Text="Delete a rezervation"               
-                VerticalOptions="Start"/>
-                </HorizontalStackLayout>
-            </xctk:Button>
-
-            <xctk:Button HeightRequest="64"
-                WidthRequest="300" >
-                <HorizontalStackLayout>
-                    <Image Source="hall.png"
-                HeightRequest="40"
-                WidthRequest="40"
-                Margin="0,0,2,0"/>
-                    <Image Source="bin.png"
-                HeightRequest="20"
-                WidthRequest="20"
-                Margin="0,0,104,0" HorizontalOptions="Start" VerticalOptions="Start" />
-                    <Label Text="Delete a room"               
                 VerticalOptions="Start"/>
                 </HorizontalStackLayout>
             </xctk:Button>

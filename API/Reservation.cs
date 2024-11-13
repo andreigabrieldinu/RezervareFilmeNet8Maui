@@ -20,11 +20,19 @@ namespace RezervareFilmeNet8.API
         public string RoomName { get; set; }
         [Column("date")]
         public string Date { get; set; }
-        [Column("price")]
-        public double Price { get; set; }
-        [Column("status")]
-        public string Status { get; set; }
+        [Column("PersonsNumber")]
+        public int PersonsNumber{ get; set; }
         [Column("email")]
         public string Email { get; set; }
+        public Reservation() {}
+        public Reservation(string movieTitle, string roomName, string date, int pers, string email)
+        {
+            MovieTitle = movieTitle;
+            RoomName = roomName;
+            Date = date;
+            PersonsNumber = pers;
+            Email = email;
+        }
     }
+    
 }

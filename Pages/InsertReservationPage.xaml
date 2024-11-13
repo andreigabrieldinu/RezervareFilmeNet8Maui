@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RezervareFilmeNet8.Pages.InsertReservationPage"
+             xmlns:xctk="clr-namespace:Xceed.Maui.Toolkit;assembly=Xceed.Maui.Toolkit"
+             Title="InsertReservationPage"
+             BackgroundImageSource="background.jpg">
+    
+    <VerticalStackLayout HorizontalOptions="Center" VerticalOptions="Center">
+        <Label Text="Movie title" FontSize="Medium"></Label>
+        <Picker x:Name="PickerMovie"
+            Title="Select a movie" Background="White" FontSize="Medium">
+        </Picker>
+        <Picker x:Name="PickerRoom"
+            Title="Select a room" Background="White" FontSize="Medium">
+        </Picker>
+
+        <Label Text="Date" FontSize="Medium" VerticalOptions="Center"/>
+        <xctk:DateTimeUpDown x:Name="DateUpDown">
+        </xctk:DateTimeUpDown>
+
+        <Label Text="Introduce your email" FontSize="Medium" VerticalOptions="Center"></Label>
+        <xctk:TextBox x:Name="TbEmail" >
+            
+        </xctk:TextBox>
+        
+        <Slider x:Name="SliderTickets" Maximum="40" Minimum="1" Value="1" ValueChanged="Slider_ValueChanged"/>
+        <Label x:Name="LabelNumberTickets" Text="Number of tickets" FontSize="Medium" VerticalOptions="Center"></Label>
+
+        <xctk:Button Clicked="InsertReservation">
+            <HorizontalStackLayout>
+                <Label Text="Check the availability for reservation"></Label>
+            </HorizontalStackLayout>
+        </xctk:Button>
+
+    </VerticalStackLayout>
+</ContentPage>

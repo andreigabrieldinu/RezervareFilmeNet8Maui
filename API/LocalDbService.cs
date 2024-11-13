@@ -1,10 +1,5 @@
 ﻿using RezervareFilmeNet8.API;
 using SQLite;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RezervareFilmeNet8
 {
@@ -17,20 +12,17 @@ namespace RezervareFilmeNet8
         {
 
         }
-
         async Task Init()
         {
             if (connection is not null)
             {
                 return;
             }
-            //aici puneti calea absoluta catre baza de 
             connection = new SQLiteAsyncConnection(Path.Combine(FileSystem.AppDataDirectory, DB_NAME));
             await connection.CreateTableAsync<Movies>();
             await connection.CreateTableAsync<Room>();
             await connection.CreateTableAsync<Reservation>();
         }
-
         public async Task <List<Movies>> GetMovies()
         {
             await Init();
@@ -92,16 +84,30 @@ namespace RezervareFilmeNet8
             await Init();
             return await connection.Table<Room>().Where(x => x.Capacity == capacity).FirstOrDefaultAsync();
         }
+        
         public async Task DeleteRoom(string name)
         {
             await Init();
             await connection.Table<Room>().Where(x => x.Name == name).DeleteAsync();
         }
-        public async Task InsertReservation(Reservation reservation)
+
+        public async Task UpdateRoomFull(Room updated)
         {
             await Init();
-            
-        }   
+            updated.Status="Full";
+            await connection.UpdateAsync(updated);
+        }
+    
 
+        public async Task CreateReservation(Reservation reservation)
+        {
+            await Init();
+            await connection.InsertAsync(reservation);
+        }   
+        public async Task<List<Reservation>> GetReservations()
+        {
+            await Init();
+            return await connection.Table<Reservation>().ToListAsync();
+        }
     }
 }

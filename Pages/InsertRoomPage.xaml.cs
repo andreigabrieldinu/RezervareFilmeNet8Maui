@@ -24,7 +24,21 @@ public partial class InsertRoomPage : ContentPage
         int newValue = (int)e.NewValue;
         LabelNumberRows.Text= "Number of rows=" + newValue;
     }
-
+    private bool IsDigitsOnly(string str)
+    {
+        if (str[0] == '0')
+        {
+            return false;
+        }
+        foreach (char c in str)
+        {
+            if (c < '0' || c > '9')
+            {
+                return false;
+            }
+        }
+        return true;
+    }
     private async void InsertRoomClicked(object sender, EventArgs e)
     {
         string tbRoomName = TbRoomName.Text;
@@ -32,6 +46,13 @@ public partial class InsertRoomPage : ContentPage
         int rows = (int)SliderRows.Value;
         string status = PickerStatus.SelectedItem.ToString();
         string screenType = PickerScreenType.SelectedItem.ToString();
+        string priceToBeParsed = EntryTicketPrice.Text;
+        if (priceToBeParsed is null || priceToBeParsed.Length==0 && IsDigitsOnly(priceToBeParsed))
+        { 
+            await DisplayAlert("Error", "Please fill the price field correctly.", "OK");
+            return;
+        }
+        int price = int.Parse(priceToBeParsed);
         string roomType = "";
         if (Rb3D.IsChecked)
         {
@@ -53,12 +74,12 @@ public partial class InsertRoomPage : ContentPage
         {
             roomType = "VIP";
         }
-        if (tbRoomName is null || status is null || screenType is null || roomType is null)
+        if (tbRoomName is null || status is null || screenType is null || roomType is null|| price==0)
         {
             DisplayAlert("Error", "Please fill in all the fields.", "OK");
             return;
         }
-        Room r = new Room(tbRoomName, capacity, rows, status, screenType, roomType);
+        Room r = new Room(tbRoomName, capacity, rows, status, screenType, roomType,price);
         Room r2=await _localDbService.GetRoomByName(r.Name);
         if (r2 is not null)
         {
@@ -77,5 +98,7 @@ public partial class InsertRoomPage : ContentPage
         Rb4DX.IsChecked = false;
         RbIMAX.IsChecked = false;
         RbVIP.IsChecked = false;
+        EntryTicketPrice=null;
+        await Navigation.PopAsync();
     }
 }

@@ -62,6 +62,12 @@
             <RadioButton x:Name="RbVIP" GroupName="RoomType" Value="VIP" Content="VIP" Margin="0,0,20,0"/>
             <RadioButton x:Name="Rb4DX" GroupName="RoomType" Value="4DX" Content="4DX" Margin="0,0,0,0"/>
         </HorizontalStackLayout>
+        <VerticalStackLayout Margin="0,0,0,20">
+            <Label Text="Ticket price" FontSize="Medium" TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Entry x:Name="EntryTicketPrice" Background="White">
+
+            </Entry>
+        </VerticalStackLayout>
         <xctk:Button Clicked="InsertRoomClicked">
             <HorizontalStackLayout>
                 <Label Text="Insert the room"></Label>

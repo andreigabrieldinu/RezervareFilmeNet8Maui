@@ -59,6 +59,11 @@ namespace RezervareFilmeNet8
         {
             await Navigation.PushAsync(new InsertRoomPage(_localDbService));
         }
+
+        private async void ToAddResevationPage(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new InsertReservationPage(_localDbService));
+        }
     }
 
 }

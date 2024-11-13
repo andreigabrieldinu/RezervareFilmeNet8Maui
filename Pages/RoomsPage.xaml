@@ -23,15 +23,16 @@
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
                         <Label Grid.Column="0"
                        Text="{Binding Name, StringFormat='Name: {0}'}"
                        FontAttributes="Bold" 
-                            VerticalOptions="Center"/>
+                            VerticalOptions="Center" Margin="0,0,5,0"/>
                         <Label 
                         Grid.Column="1"
                         Text="{Binding Capacity, StringFormat='Total capacity: {0}'}"
-                        VerticalOptions="Center" />
+                        VerticalOptions="Center" Margin="0,0,5,0" />
                         <Label
                         Grid.Column="2"
                         Text="{Binding RowNumbers, StringFormat='Number of rows: {0}
@@ -42,13 +43,14 @@
                         Text="{Binding Status, StringFormat='Current status: {0}'}" VerticalOptions="Center" Margin="0,0,5,0" />
                         <Label Grid.Column="4" 
                                Text="{Binding ScreenType,StringFormat='Screen type: {0}'}"
-                               VerticalOptions="Center"/>
+                               VerticalOptions="Center" Margin="0,0,5,0" />
                         <Label Grid.Column="5"
-                               Text="{Binding RoomType,StringFormat='Room type: {0}'}" VerticalOptions="Center"/>
-                        
-                        <Button Clicked="ModifyRoomInUI" Grid.Column="6" VerticalOptions="Start" ImageSource="systemupdate.png" HeightRequest="20" WidthRequest="20" BackgroundColor="White">
+                               Text="{Binding RoomType,StringFormat='Room type: {0}'}" VerticalOptions="Center" Margin="0,0,5,0"/>
+                        <Label Grid.Column="6"
+                               Text="{Binding Price,StringFormat='Price: {0}'}" VerticalOptions="Center" Margin="0,0,5,0" />
+                        <Button Clicked="ModifyRoomInUI" Grid.Column="7" VerticalOptions="Start" ImageSource="systemupdate.png" HeightRequest="20" WidthRequest="20" BackgroundColor="White" Margin="0,0,5,0" >
                         </Button>
-                        <Button Clicked="DeleteRoomInUI" Grid.Column="7" VerticalOptions="Start" ImageSource="bin.png" HeightRequest="20" WidthRequest="20" BackgroundColor="White">
+                        <Button Clicked="DeleteRoomInUI" Grid.Column="8" VerticalOptions="Start" ImageSource="bin.png" HeightRequest="20" WidthRequest="20" BackgroundColor="White">
                         </Button>
                     </Grid>
                 </DataTemplate>
