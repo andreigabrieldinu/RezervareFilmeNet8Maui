@@ -9,7 +9,7 @@
 
     <VerticalStackLayout>
         <HorizontalStackLayout>
-            <xctk:Calendar x:Name="CalendarReservation" SelectionMode="Single" SelectedDatesChanged="CalendarReservation_SelectedDatesChanged">
+            <xctk:Calendar x:Name="CalendarReservation"  SelectionMode="Single" SelectedDatesChanged="CalendarReservation_SelectedDatesChanged">
             </xctk:Calendar>
             <Label Text="Reservations for the selected date" FontSize="Title" HorizontalOptions="Start" TextColor="Black"/>
             <ListView x:Name="listViewReservations">

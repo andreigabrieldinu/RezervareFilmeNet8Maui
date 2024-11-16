@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Maui.Markup;
+using Microcharts.Maui;
 using Microsoft.Extensions.Logging;
 using RezervareFilmeNet8.Pages;
 using Xceed.Maui.Toolkit;
@@ -12,7 +13,7 @@ namespace RezervareFilmeNet8
             var builder = MauiApp.CreateBuilder();
 
             builder
-                .UseMauiApp<App>().UseXceedMauiToolkit(FluentDesignAccentColor.DarkLily)
+                .UseMauiApp<App>().UseXceedMauiToolkit(FluentDesignAccentColor.DarkLily).UseMicrocharts()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

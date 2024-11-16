@@ -195,7 +195,9 @@ public partial class InsertReservationPage : ContentPage
         int personsNumber = (int)SliderTickets.Value;
         bool emailValid = validateMail(email);
         
-        if(date.CompareTo(DateTime.Now)<0)
+        int difference= (int)(date - DateTime.Now).TotalMinutes;
+
+        if(difference<=-2)
         {
             await DisplayAlert("Error", "Please fill the date field correctly.", "OK");
             return;
@@ -236,12 +238,18 @@ public partial class InsertReservationPage : ContentPage
         {
             reservationsMap = InsertReservationsInDict(reservationsMap, r);
             await _localDbService.CreateReservation(r);
+            
             if (array[1])
             {
                 await _localDbService.UpdateRoomFull(room);
-                await DisplayAlert("Success", "The reservation has been created", "OK");
-                return;
             }
+            PickerMovie.SelectedItem = null;
+            PickerRoom.SelectedItem = null;
+            DateUpDown.Value = null;
+            TbEmail.Text = "";
+            SliderTickets.Value = 0;
+            await DisplayAlert("Success", "The reservation has been created", "OK");
+            return;
         }
     }    
 }

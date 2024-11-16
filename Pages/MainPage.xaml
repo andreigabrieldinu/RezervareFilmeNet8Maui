@@ -101,6 +101,7 @@
         </VerticalStackLayout>
 
         <VerticalStackLayout>
+            <VerticalStackLayout>
             <Label Text="Introduce the movie Title"/>
             <xctk:TextBox x:Name="TextBoxMovie">
                 <xctk:TextBox.Text>
@@ -110,6 +111,24 @@
                     </OnPlatform>
                 </xctk:TextBox.Text>
             </xctk:TextBox>
+            </VerticalStackLayout>
+            <HorizontalStackLayout>
+            <ListView x:Name="listViewRevenueMovies" HorizontalOptions="End" VerticalOptions="Start" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <HorizontalStackLayout>
+                                <Image Source="{Binding Poster}" Aspect="AspectFill" HeightRequest="160" WidthRequest="160" HorizontalOptions="Start" VerticalOptions="Start" Margin="0,0,0,5"/>
+                                <VerticalStackLayout>
+                                    <Label Text="{Binding MovieTitle}" FontSize="Title" />
+                                    <Label Text="{Binding Total, StringFormat='Total Revenue: {0}'}"  FontSize="Body"/>
+                                </VerticalStackLayout>
+                            </HorizontalStackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            </HorizontalStackLayout>
         </VerticalStackLayout>
 
     </FlexLayout>

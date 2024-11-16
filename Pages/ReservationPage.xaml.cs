@@ -32,7 +32,16 @@ public partial class ReservationPage : ContentPage
 
     private async void CalendarReservation_SelectedDatesChanged(object sender, Xceed.Maui.Toolkit.ValueChangedEventArgs<System.Collections.ObjectModel.Collection<DateTime>> e)
     {
-        DateTime Date = (DateTime)CalendarReservation.SelectedDate;
+        DateTime Date;
+        if (CalendarReservation.SelectedDate.HasValue)
+        {
+             Date = (DateTime)CalendarReservation.SelectedDate;
+        }
+        else
+        {
+             Date = DateTime.Now;
+        }
+        
         reservations = await _localDbService.GetReservationsByDate(Date);
 		listViewReservations.ItemsSource = reservations;
 			if (reservations.Count > 0)

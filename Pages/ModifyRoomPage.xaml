@@ -12,5 +12,8 @@
             <RadioButton x:Name="RbFull" GroupName="statusType" Value="Full" Content="Full" Margin="0,0,20,0"/>
             <RadioButton x:Name="RbInRepairs" GroupName="statusType" Value="In Repairs" Content="In Repairs" Margin="0,0,20,0"/>
         </HorizontalStackLayout>
+        <xctk:Button Clicked="ModifyRoom" WidthRequest="130" HeightRequest="70" HorizontalOptions="Start">
+            <Label Text="Modify the status of the room" />
+        </xctk:Button>
     </VerticalStackLayout>
 </ContentPage>
