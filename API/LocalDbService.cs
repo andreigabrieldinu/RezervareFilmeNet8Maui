@@ -88,6 +88,7 @@ namespace RezervareFilmeNet8
         public async Task DeleteRoom(string name)
         {
             await Init();
+            await DeleteReservationsFromRoom(name);
             await connection.Table<Room>().Where(x => x.Name == name).DeleteAsync();
         }
 
@@ -97,7 +98,13 @@ namespace RezervareFilmeNet8
             updated.Status="Full";
             await connection.UpdateAsync(updated);
         }
-    
+
+        public async Task UpdateRoom(Room room,string status)
+        {
+            await Init();
+            room.Status=status;
+            await connection.UpdateAsync(room);
+        }
 
         public async Task CreateReservation(Reservation reservation)
         {
@@ -108,6 +115,33 @@ namespace RezervareFilmeNet8
         {
             await Init();
             return await connection.Table<Reservation>().ToListAsync();
+        }
+
+        public async Task<Reservation> GetReservationByRoomName(string roomName)
+        {
+            await Init();
+            return await connection.Table<Reservation>().Where(x => x.RoomName == roomName).FirstOrDefaultAsync();
+        }
+        public async Task<List<Reservation>> GetReservationsByDate(DateTime date)
+        {
+            await Init();
+            List<Reservation> reservations = await GetReservations();
+            List<Reservation> GoodReservations = new List<Reservation>();
+
+            string equalDate = date.Date.ToString().Substring(0,10);
+            foreach (Reservation reservation in reservations)
+            {
+                if (reservation.Date.ToString().Substring(0, 10).Equals(equalDate))
+                {
+                    GoodReservations.Add(reservation);
+                }
+            } 
+            return GoodReservations;
+        }
+        public async Task DeleteReservationsFromRoom(string roomName)
+        {
+            await Init();
+            await connection.Table<Reservation>().Where(x => x.RoomName == roomName).DeleteAsync();
         }
     }
 }

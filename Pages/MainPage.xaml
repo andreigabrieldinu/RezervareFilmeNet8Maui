@@ -44,19 +44,19 @@
             </xctk:Button>
 
             <xctk:Button HeightRequest="64"
-                 WidthRequest="300" Clicked="ToMoviePage">
+                 WidthRequest="300" Clicked="ToReservationPage">
                 <HorizontalStackLayout>
                     <Image Source="reserved.png"
                 HeightRequest="40"
                 WidthRequest="40"
                 Margin="0,0,26,0"/>
-                    <Label Text="View the Rezervations made"               
+                    <Label Text="View the Rezervations by date"               
                 VerticalOptions="Start"/>
                 </HorizontalStackLayout>
             </xctk:Button>
             
             <xctk:Button HeightRequest="64"
-                WidthRequest="300" >
+                WidthRequest="300" Clicked="ToChartPage" >
                 <HorizontalStackLayout>
                     <Image Source="piechart.png"
                 HeightRequest="40"
@@ -101,7 +101,7 @@
         </VerticalStackLayout>
 
         <VerticalStackLayout>
-            <Label  Text="Please introduce a film that you would like to see with your friends"/>
+            <Label Text="Introduce the movie Title"/>
             <xctk:TextBox x:Name="TextBoxMovie">
                 <xctk:TextBox.Text>
                     <OnPlatform x:TypeArguments="x:String">

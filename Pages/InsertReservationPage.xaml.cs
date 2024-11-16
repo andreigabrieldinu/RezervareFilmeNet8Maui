@@ -63,7 +63,6 @@ public partial class InsertReservationPage : ContentPage
         reservationsMap=dict;
     }
 
-
     protected async override void OnAppearing()
     {
         base.OnAppearing();
@@ -136,10 +135,33 @@ public partial class InsertReservationPage : ContentPage
         }
         else
         {
+            if(durations.Count==0)
+            {
+                return true;
+            }   
+
             for (int i = 0; i < durations.Count; i++)
             {
                 DateTime date = DateTime.Parse(dict[room.Name][i].Date);
+                int dayDate1 = date.Day;
+                int monthDate1 = date.Month;
+                int yearDate1 = date.Year;
+                int hourDate1 = date.Hour;
+                int minuteDate1 = date.Minute;
+
                 DateTime date2 = DateTime.Parse(r.Date);
+                int dayDate2 = date2.Day;
+                int monthDate2 = date2.Month;
+                int yearDate2 = date2.Year;
+                int hourDate2 = date2.Hour;
+                int minuteDate2 = date2.Minute;
+                
+                if (dict[room.Name][i].MovieTitle == r.MovieTitle && dayDate1==dayDate2 
+                    && monthDate1==monthDate2 && yearDate1==yearDate2 && hourDate1==hourDate2 &&
+                    minuteDate1==minuteDate2)
+                {
+                    return true;
+                }
                 TimeSpan ts;
                 if (date.CompareTo(date2) > 0)
                 {
@@ -172,6 +194,13 @@ public partial class InsertReservationPage : ContentPage
         string email=TbEmail.Text;
         int personsNumber = (int)SliderTickets.Value;
         bool emailValid = validateMail(email);
+        
+        if(date.CompareTo(DateTime.Now)<0)
+        {
+            await DisplayAlert("Error", "Please fill the date field correctly.", "OK");
+            return;
+        }
+        
         if(!emailValid)
         {
             await DisplayAlert("Error", "Please fill the email field correctly.", "OK");
@@ -186,10 +215,9 @@ public partial class InsertReservationPage : ContentPage
 
         if (!array[0])
         {
-            await DisplayAlert("Error", "The room is not available at this time.", "OK");
+            await DisplayAlert("Error", "The room has not enough seats at this time.", "OK");
             return;
         }
-        List<Reservation> reservations = new List<Reservation>();
         reservations= reservationsMap[room.Name];
         List<Movies> movies = new List<Movies>();
         List<int> durationsForMovies=new List<int>();
@@ -211,6 +239,8 @@ public partial class InsertReservationPage : ContentPage
             if (array[1])
             {
                 await _localDbService.UpdateRoomFull(room);
+                await DisplayAlert("Success", "The reservation has been created", "OK");
+                return;
             }
         }
     }    

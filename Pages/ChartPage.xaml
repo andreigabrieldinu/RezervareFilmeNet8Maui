@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RezervareFilmeNet8.Pages.ChartPage"
+             xmlns:xctk="clr-namespace:Xceed.Maui.Toolkit;assembly=Xceed.Maui.Toolkit"
+             Title="ChartPage"
+             BackgroundImageSource="background.jpg">
+    <VerticalStackLayout>
+        <Label Text="Chart for number of rezervations of rooms by days"
+               FontSize="Body"
+               HorizontalOptions="Center" />
+        <xctk:Chart x:Name="Chart1"
+            Grid.Row="1">
+            <xctk:Chart.HorizontalAxis>
+                <xctk:Axis TickLabelType="Text" />
+            </xctk:Chart.HorizontalAxis>
+            <xctk:Chart.Series>
+                <xctk:Series x:Name="FirstSeries">
+                    <xctk:Series.DataPoints>
+                        <xctk:DataPoint Text="0"
+                        Y="44" />
+                        <xctk:DataPoint Text="1"
+                        Y="64" />
+                        <xctk:DataPoint Text="2"
+                        Y="60" />
+                        <xctk:DataPoint Text="3"
+                        Y="32" />
+                        <xctk:DataPoint Text="4"
+                        Y="52" />
+                        <xctk:DataPoint Text="5"
+                        Y="72" />
+                        <xctk:DataPoint Text="6"
+                        Y="32" />
+                    </xctk:Series.DataPoints>
+                </xctk:Series>
+            </xctk:Chart.Series>
+        </xctk:Chart>
+    </VerticalStackLayout>
+</ContentPage>

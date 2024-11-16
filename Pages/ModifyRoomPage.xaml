@@ -2,8 +2,15 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RezervareFilmeNet8.Pages.ModifyRoomPage"
-             Title="ModifyRoomPage">
+             xmlns:xctk="clr-namespace:Xceed.Maui.Toolkit;assembly=Xceed.Maui.Toolkit"
+             Title="ModifyRoomPage"
+             BackgroundImageSource="background.jpg">
     <VerticalStackLayout>
-        
+        <HorizontalStackLayout Margin="0,5,0,0">
+            <RadioButton x:Name="RbAvailable" GroupName="statusType" Value="Available" Content="Available" Margin="0,0,20,0"/>
+            <RadioButton x:Name="RbNotAvailable" GroupName="statusType" Value="Not Available" Content="Not Available" Margin="0,0,20,0"/>
+            <RadioButton x:Name="RbFull" GroupName="statusType" Value="Full" Content="Full" Margin="0,0,20,0"/>
+            <RadioButton x:Name="RbInRepairs" GroupName="statusType" Value="In Repairs" Content="In Repairs" Margin="0,0,20,0"/>
+        </HorizontalStackLayout>
     </VerticalStackLayout>
 </ContentPage>
