@@ -7,10 +7,10 @@
              BackgroundImageSource="background.jpg">
     <VerticalStackLayout>
         <HorizontalStackLayout Margin="0,5,0,0">
-            <RadioButton x:Name="RbAvailable" GroupName="statusType" Value="Available" Content="Available" Margin="0,0,20,0"/>
-            <RadioButton x:Name="RbNotAvailable" GroupName="statusType" Value="Not Available" Content="Not Available" Margin="0,0,20,0"/>
-            <RadioButton x:Name="RbFull" GroupName="statusType" Value="Full" Content="Full" Margin="0,0,20,0"/>
-            <RadioButton x:Name="RbInRepairs" GroupName="statusType" Value="In Repairs" Content="In Repairs" Margin="0,0,20,0"/>
+            <RadioButton x:Name="RbAvailable" GroupName="statusType" Value="Available" Content="Available" Margin="0,0,10,0"/>
+            <RadioButton x:Name="RbNotAvailable" GroupName="statusType" Value="Not Available" Content="Not Available" Margin="0,0,10,0"/>
+            <RadioButton x:Name="RbFull" GroupName="statusType" Value="Full" Content="Full" Margin="0,0,10,0"/>
+            <RadioButton x:Name="RbInRepairs" GroupName="statusType" Value="In Repairs" Content="In Repairs" Margin="0,0,10,0"/>
         </HorizontalStackLayout>
         <xctk:Button Clicked="ModifyRoom" WidthRequest="130" HeightRequest="70" HorizontalOptions="Start">
             <Label Text="Modify the status of the room" />

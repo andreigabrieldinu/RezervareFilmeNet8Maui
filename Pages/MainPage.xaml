@@ -5,105 +5,11 @@
              xmlns:droid="clr-namespace:CommunityToolkit.Maui.PlatformConfiguration.AndroidSpecific;assembly=CommunityToolkit.Maui"
              x:Class="RezervareFilmeNet8.MainPage"
              BackgroundImageSource="background.jpg" >
-    <FlexLayout>
-        <VerticalStackLayout HorizontalOptions="Start" >
-            <xctk:Button HeightRequest="64"
-                 WidthRequest="300" Clicked="OnClicked">
-                <HorizontalStackLayout>
-                    <Image Source="plus.png"
-               HeightRequest="40"
-               WidthRequest="40"
-               Margin="0,0,10,0"/>
-                    <Label Text="Add the movie to the collection"               
-               VerticalOptions="Start"/>
-                </HorizontalStackLayout>
-            </xctk:Button>
-
-            <xctk:Button HeightRequest="64"
-                 WidthRequest="300" Clicked="ToMoviePage">
-                <HorizontalStackLayout>
-                    <Image Source="visible.png"
-               HeightRequest="40"
-               WidthRequest="40"
-               Margin="0,0,60,0"/>
-                    <Label Text="Navigate to movie page"               
-               VerticalOptions="Start"/>
-                </HorizontalStackLayout>
-            </xctk:Button>
-
-            <xctk:Button HeightRequest="64" 
-                WidthRequest="300" Clicked="ToRoomsPage">
-                <HorizontalStackLayout>
-                    <Image Source="hall.png"
-               HeightRequest="40"
-               WidthRequest="40"
-               Margin="0,0,48,0"/>
-                    <Label Text="View the available Rooms"               
-                VerticalOptions="Start"/>
-                </HorizontalStackLayout>
-            </xctk:Button>
-
-            <xctk:Button HeightRequest="64"
-                 WidthRequest="300" Clicked="ToReservationPage">
-                <HorizontalStackLayout>
-                    <Image Source="reserved.png"
-                HeightRequest="40"
-                WidthRequest="40"
-                Margin="0,0,26,0"/>
-                    <Label Text="View the Rezervations by date"               
-                VerticalOptions="Start"/>
-                </HorizontalStackLayout>
-            </xctk:Button>
-            
-            <xctk:Button HeightRequest="64"
-                WidthRequest="300" Clicked="ToChartPage" >
-                <HorizontalStackLayout>
-                    <Image Source="piechart.png"
-                HeightRequest="40"
-                WidthRequest="40"
-                Margin="0,0,70,0"/>
-                    <Label Text="Chart for rezervations"               
-                VerticalOptions="Start"/>
-                </HorizontalStackLayout>
-            </xctk:Button>
-
-            <xctk:Button HeightRequest="64"
-                 WidthRequest="300" Clicked="ToAddResevationPage">
-                <HorizontalStackLayout>
-                    <Image Source="reserved.png"
-                 HeightRequest="40"
-                  WidthRequest="40"
-                  Margin="0,0,0,0"/>
-                    <Image Source="add.png" HorizontalOptions="Start" VerticalOptions="Start"
-                HeightRequest="20"
-                WidthRequest="20"
-                Margin="0,0,80,0"/>
-                    <Label Text="Add a rezervation"               
-                VerticalOptions="Start"/>
-                </HorizontalStackLayout>
-            </xctk:Button>
-
-            <xctk:Button HeightRequest="64"
-                WidthRequest="300" Clicked="ToAddRoomPage" >
-                <HorizontalStackLayout>
-                    <Image Source="hall.png"
-                HeightRequest="40"
-                WidthRequest="40"
-                Margin="0,0,2,0"/>
-                    <Image Source="add.png"
-                HeightRequest="20"
-                WidthRequest="20"
-                Margin="0,0,120,0" HorizontalOptions="Start" VerticalOptions="Start"/>
-                    <Label Text="Add a room"               
-                VerticalOptions="Start"/>
-                </HorizontalStackLayout>
-            </xctk:Button>
-        </VerticalStackLayout>
-
-        <VerticalStackLayout>
-            <VerticalStackLayout>
-            <Label Text="Introduce the movie Title"/>
-            <xctk:TextBox x:Name="TextBoxMovie">
+    <VerticalStackLayout>
+        <VerticalStackLayout HorizontalOptions="Start" VerticalOptions="Center">
+            <Label Text="Introduce the movie Title" />
+            <xctk:TextBox x:Name="TextBoxMovie"  HeightRequest="64"
+                 WidthRequest="215" >
                 <xctk:TextBox.Text>
                     <OnPlatform x:TypeArguments="x:String">
                         <On Platform="iOS">Enter the movie name</On>
@@ -111,26 +17,100 @@
                     </OnPlatform>
                 </xctk:TextBox.Text>
             </xctk:TextBox>
-            </VerticalStackLayout>
-            <HorizontalStackLayout>
-            <ListView x:Name="listViewRevenueMovies" HorizontalOptions="End" VerticalOptions="Start" >
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <HorizontalStackLayout>
-                                <Image Source="{Binding Poster}" Aspect="AspectFill" HeightRequest="160" WidthRequest="160" HorizontalOptions="Start" VerticalOptions="Start" Margin="0,0,0,5"/>
-                                <VerticalStackLayout>
-                                    <Label Text="{Binding MovieTitle}" FontSize="Title" />
-                                    <Label Text="{Binding Total, StringFormat='Total Revenue: {0}'}"  FontSize="Body"/>
-                                </VerticalStackLayout>
-                            </HorizontalStackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-            </HorizontalStackLayout>
         </VerticalStackLayout>
+        <VerticalStackLayout HorizontalOptions="Start" >
+            <xctk:Button HeightRequest="64"
+                 WidthRequest="215" Clicked="OnClicked">
+                <HorizontalStackLayout>
+                    <Image Source="plus.png"
+               HeightRequest="30"
+               WidthRequest="30"
+               Margin="0,0,10,0"/>
+                    <Label Text="Add movie to list"               
+               VerticalOptions="Start"/>
+                </HorizontalStackLayout>
+            </xctk:Button>
 
-    </FlexLayout>
+            <xctk:Button HeightRequest="64"
+                 WidthRequest="215" Clicked="ToMoviePage">
+                <HorizontalStackLayout>
+                    <Image Source="visible.png"
+               HeightRequest="30"
+               WidthRequest="30"
+               Margin="0,0,0,0"/>
+                    <Label Text="Navigate to movie page"               
+               VerticalOptions="Start"/>
+                </HorizontalStackLayout>
+            </xctk:Button>
+
+            <xctk:Button HeightRequest="64"
+                 WidthRequest="215" Clicked="ToRoomsPage">
+                <HorizontalStackLayout>
+                    <Image Source="hall.png"
+               HeightRequest="30"
+               WidthRequest="30"
+               Margin="0,0,0,0"/>
+                    <Label Text="View the available rooms"               
+                VerticalOptions="Start"/>
+                </HorizontalStackLayout>
+            </xctk:Button>
+
+            <xctk:Button HeightRequest="64"
+                 WidthRequest="215" Clicked="ToReservationPage">
+                <HorizontalStackLayout>
+                    <Image Source="reserved.png"
+                HeightRequest="30"
+                WidthRequest="30"
+                Margin="0,0,0,0"/>
+                    <Label Text="View rezervations by date"               
+                VerticalOptions="Start"/>
+                </HorizontalStackLayout>
+            </xctk:Button>
+
+            <xctk:Button HeightRequest="64"
+                 WidthRequest="215" Clicked="ToChartPage" >
+                <HorizontalStackLayout>
+                    <Image Source="piechart.png"
+                HeightRequest="30"
+                WidthRequest="30"
+                Margin="0,0,0,0"/>
+                    <Label Text="Chart for rezervations"               
+                VerticalOptions="Start"/>
+                </HorizontalStackLayout>
+            </xctk:Button>
+
+            <xctk:Button HeightRequest="64"
+                 WidthRequest="215" Clicked="ToAddResevationPage">
+                <HorizontalStackLayout>
+                    <Image Source="reserved.png"
+                 HeightRequest="30"
+                  WidthRequest="30"
+                  Margin="0,0,0,0"/>
+                    <Image Source="add.png" HorizontalOptions="Start" VerticalOptions="Start"
+                HeightRequest="20"
+                WidthRequest="20"
+                Margin="0,0,0,0"/>
+                    <Label Text="Add a rezervation"               
+                VerticalOptions="Start"/>
+                </HorizontalStackLayout>
+            </xctk:Button>
+
+            <xctk:Button HeightRequest="64"
+                 WidthRequest="215" Clicked="ToAddRoomPage" >
+                <HorizontalStackLayout>
+                    <Image Source="hall.png"
+                HeightRequest="30"
+                WidthRequest="30"
+                Margin="0,0,0,0"/>
+                    <Image Source="add.png"
+                HeightRequest="20"
+                WidthRequest="20"
+                Margin="0,0,0,0" HorizontalOptions="Start" VerticalOptions="Start"/>
+                    <Label Text="Add a room"               
+                VerticalOptions="Start"/>
+                </HorizontalStackLayout>
+            </xctk:Button>
+        </VerticalStackLayout>
+    </VerticalStackLayout>
 
 </ContentPage>

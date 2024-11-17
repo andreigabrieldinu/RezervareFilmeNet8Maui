@@ -6,40 +6,41 @@
              Title="ReservationPage"
              BackgroundImageSource="background.jpg">
 
-
-    <VerticalStackLayout>
-        <HorizontalStackLayout>
-            <xctk:Calendar x:Name="CalendarReservation"  SelectionMode="Single" SelectedDatesChanged="CalendarReservation_SelectedDatesChanged">
-            </xctk:Calendar>
+    <ScrollView>
+        <VerticalStackLayout>
+            <HorizontalStackLayout>
+                <xctk:Calendar x:Name="CalendarReservation"  SelectionMode="Single" SelectedDatesChanged="CalendarReservation_SelectedDatesChanged">
+                </xctk:Calendar>
+            </HorizontalStackLayout>
+            <HorizontalStackLayout>
+                <Picker x:Name="PickerRoomRezervation"
+         Title="Select a room" Background="White" FontSize="Medium" SelectedIndexChanged="PickerRoomRezervation_SelectedIndexChanged">
+                </Picker>
+            </HorizontalStackLayout>
+            <xctk:Button x:Name="ButtonReservations" Clicked="ButtonReservations_Clicked" TextColor="White" HeightRequest="30" WidthRequest="250" VerticalOptions="Start" HorizontalOptions="Start">
+                <HorizontalStackLayout>
+                    <Label Text="Reservation by room and date" FontSize="Body" HorizontalOptions="Start" TextColor="Black" />
+                </HorizontalStackLayout>
+            </xctk:Button>
             <Label Text="Reservations for the selected date" FontSize="Title" HorizontalOptions="Start" TextColor="Black"/>
-            <ListView x:Name="listViewReservations">
-                <ListView.ItemTemplate>
+
+            <ListView x:Name="listViewReservations" RowHeight="120">
+                <ListView.ItemTemplate >
                     <DataTemplate>
                         <ViewCell>
                             <HorizontalStackLayout>
-                                <HorizontalStackLayout>
+                                <VerticalStackLayout>
                                     <Label Text="{Binding MovieTitle, StringFormat='Title: {0}'}" Margin="0,0,5,0" FontSize="Body"  />
                                     <Label Text="{Binding RoomName, StringFormat='Room name: {0}'}" Margin="0,0,5,0" FontSize="Body"/>
                                     <Label Text="{Binding Date, StringFormat='Date: {0}'}" Margin="0,0,5,0" FontSize="Body" />
                                     <Label Text="{Binding PersonsNumber, StringFormat='Number of tickes: {0}'}" Margin="0,0,5,0" FontSize="Body"/>
                                     <Label Text="{Binding Email, StringFormat='Email: {0}'}" Margin="0,0,5,0" FontSize="Body"/>
-                                </HorizontalStackLayout>
+                                </VerticalStackLayout>
                             </HorizontalStackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </HorizontalStackLayout>
-        <HorizontalStackLayout>
-            <Picker x:Name="PickerRoomRezervation"
-         Title="Select a room" Background="White" FontSize="Medium" SelectedIndexChanged="PickerRoomRezervation_SelectedIndexChanged">
-            </Picker>
-        </HorizontalStackLayout>
-        <xctk:Button x:Name="ButtonReservations" Clicked="ButtonReservations_Clicked" TextColor="White" HeightRequest="30" WidthRequest="200" VerticalOptions="Start" HorizontalOptions="Start">
-            <HorizontalStackLayout>
-                <Label Text="Select reservations by room and date" FontSize="Body" HorizontalOptions="Start" TextColor="Black" />
-            </HorizontalStackLayout>
-        </xctk:Button>
-        
-    </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

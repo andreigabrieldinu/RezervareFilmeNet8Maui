@@ -9,20 +9,19 @@
 
     <StackLayout>
         <Label Text="Our available Movies" FontSize="Title" HorizontalOptions="Center" TextColor="Black"/>
-        <ListView x:Name="listViewMovies">
+        <ListView x:Name="listViewMovies" RowHeight="140" >
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell>
-                        <HorizontalStackLayout>
-                            <Image Source="{Binding Poster}" Aspect="AspectFill" HeightRequest="160" WidthRequest="160" HorizontalOptions="Start" VerticalOptions="Start" Margin="0,0,0,5"/>
+                    <ViewCell  >
+                        <HorizontalStackLayout >
+                            <Image Source="{Binding Poster}"  HeightRequest="80" WidthRequest="80" />
                             <VerticalStackLayout>
-                                <Label Text="{Binding Title}" FontSize="Title" />
-                                <Label Text="{Binding Released, StringFormat='Released on: {0}'}"  FontSize="Body"/>
-                                <Label Text="{Binding Genre, StringFormat='Genre: {0}'}"  FontSize="Body" />
-                                <Label Text="{Binding Runtime, StringFormat='Duration: {0}'}" FontSize="Body"/>
-                                <Label Text="{Binding Plot, StringFormat='Plot: {0}'}" FontSize="Body"/>
-                                <Label Text="{Binding Language, StringFormat='Language: {0}'}" FontSize="Body"/>
-                                <Label Text="{Binding imdbRating,StringFormat='Rating: {0}'}" FontSize="Body"/>
+                            <Label Text="{Binding Title}" FontSize="Body"  HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                            <Label Text="{Binding Released, StringFormat='Released on: {0}'}"  FontSize="Body" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                            <Label Text="{Binding Genre, StringFormat='Genre: {0}'}"  FontSize="Body" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" />
+                            <Label Text="{Binding Runtime, StringFormat='Duration: {0}'}" FontSize="Body" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                            <Label Text="{Binding Language, StringFormat='Language: {0}'}" FontSize="Body" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                            <Label Text="{Binding imdbRating,StringFormat='Rating: {0}'}" FontSize="Body" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
                             </VerticalStackLayout>
                         </HorizontalStackLayout>
                     </ViewCell>

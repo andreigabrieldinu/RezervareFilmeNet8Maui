@@ -30,13 +30,13 @@ public partial class RoomsPage : ContentPage
     }
     private void ModifyRoomInUI(object sender, EventArgs e)
     {
-        Button b = (Button)sender;
+        Xceed.Maui.Toolkit.Button b = (Xceed.Maui.Toolkit.Button)sender;
         Room r = (Room)b.BindingContext;
         Navigation.PushAsync(new ModifyRoomPage(r, _localDbService));
     }
     private async void DeleteRoomInUI(object sender, EventArgs e)
     {
-        Button b = (Button)sender;
+        Xceed.Maui.Toolkit.Button b = (Xceed.Maui.Toolkit.Button)sender;
         Room r = (Room)b.BindingContext;
         await _localDbService.DeleteRoom(r.Name);
         OnAppearing();
